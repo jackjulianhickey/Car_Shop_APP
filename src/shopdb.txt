@@ -1,0 +1,18 @@
+DROP DATABASE IF EXISTS shop;
+CREATE DATABASE IF NOT EXISTS shop;
+use shop;
+grant usage on *.* to sqluser@localhost identified by 'sqluserpw';
+grant all privileges on feedback.* to sqluser@localhost;
+CREATE TABLE IF NOT EXISTS products (
+         productID    INT UNSIGNED  NOT NULL AUTO_INCREMENT,
+         name         VARCHAR(30)   NOT NULL DEFAULT '',
+         description   VARCHAR(30)   NOT NULL DEFAULT '',
+         price        DECIMAL(7,2)  NOT NULL DEFAULT 99999.99,
+         image        VARCHAR(100)   NOT NULL DEFAULT '',
+         PRIMARY KEY  (productID)
+       );
+INSERT INTO products (name, description, price, image) VALUES
+         ('Car 1', 'good', 0.48,'car1.jpeg'),
+         ('Car 2', 'excellent', 0.49,'car2.jpeg');         
+
+
